@@ -13,7 +13,7 @@ const NoteCreater = () => {
   }, []);
 
   return (
-    <div className=" flex flex-col items-center w-5/12 bg-gray-">
+    <div className=" flex flex-col items-center w-5/12 ">
       <h1 className=" font-mono text-2xl font-extrabold py-4 ">{time.toLocaleTimeString()}</h1>
       <ul className=" completed-task-list w-full flex flex-col items-center gap-1 h-80">
         <DisplayNoTasks/>
