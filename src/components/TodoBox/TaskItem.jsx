@@ -22,7 +22,7 @@ const TaskItem = (props) => {
         <div className="keywords text-xs flex justify-between w-6 text-right font-thin">
           <ul>
             <li>IMP</li>
-            <li>DO THIS</li>
+            <li>THIS</li>
           </ul>
         </div>
       </div>
