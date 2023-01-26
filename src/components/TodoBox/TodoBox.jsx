@@ -8,8 +8,8 @@ const TodoBox = () => {
   return (
     <div className="todo-main flex flex-row  gap-5 h-full overflow-hidden">
         <TodoDisplay/>
-        <TodoCreate/> 
-      {/*<CreatingTask/>*/}
+        { /*<TodoCreate/> */}
+      <CreatingTask/>
     </div>
   )
 }
