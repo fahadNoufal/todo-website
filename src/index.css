@@ -32,7 +32,7 @@ body{
 
 
 /* Select the checkbox element */
-input[type="checkbox"] {
+input[type="radio"] {
   /* Hide the default checkbox */
   display: none;
 }

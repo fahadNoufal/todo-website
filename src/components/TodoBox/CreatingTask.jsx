@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import TaskTag from './TaskTag'
 import {useDispatch,useSelector} from "react-redux"
 import {  addTask } from '../../features/addedTask/AddedTaskSlice';
+import { toggleDisplayCreate } from '../../features/displaycreate/displayCreate';
 
 
 const CreatingTask = () => {
@@ -23,12 +24,23 @@ const CreatingTask = () => {
   }
 
   const handleSubmit =()=>{
+    const points=0
     const tagNames=[]
-    if (tags[0]) tagNames.push('URG');
-    if (tags[1]) tagNames.push('IMP');
-    if (tags[2]) tagNames.push('MUST');
+    if (tags[0]){
+      tagNames.push('URG');
+      points+=100
+    }
+    if (tags[0]){
+      tagNames.push('URG');
+      points+=50
+    }
+    if (tags[0]){
+      tagNames.push('URG');
+      points+=10
+    }
 
-    dispatch(addTask({title:taskTitle,description:description,tags:tagNames}))
+    dispatch(addTask({title:taskTitle,description:description,tags:tagNames,points:points}))
+    dispatch(toggleDisplayCreate())
     setTaskTitle('')
     setDescription('')
     setTags([false,false,false,true])
@@ -39,7 +51,10 @@ const CreatingTask = () => {
 
   return (
     <div className=' flex flex-col items-center w-5/12 pt-16'>
-      <button className=' w-full py-2 px-20 rounded-lg  bg-yellow-700  font-extrabold tracking-widest text-gray-200 outline-none hover:bg-yellow-800 transition-all'>
+      <button 
+        onClick={()=>{dispatch(toggleDisplayCreate())}}
+        className=' w-full py-2 px-20 rounded-lg  bg-yellow-700  font-extrabold tracking-widest text-gray-200 outline-none hover:bg-yellow-800 transition-all'>
+        
         CANCEL
       </button>
       <input 
@@ -62,8 +77,8 @@ const CreatingTask = () => {
       <ul>
         <li><TaskTag tagName="URG" index={0} pts={100} selected={tags[0]} toggle={handleTagSelect}/></li>
         <li><TaskTag tagName="IMP" index={1} pts={50} selected={tags[1]} toggle={handleTagSelect} /></li>
-        <li><TaskTag tagName="MUST" index={2} pts={30} selected={tags[2]} toggle={handleTagSelect}/></li>
-        <li><TaskTag tagName="NONE" index={3} pts={10} selected={tags[3]} toggle={handleTagSelect} /></li>
+        <li><TaskTag tagName="MUST" index={2} pts={10} selected={tags[2]} toggle={handleTagSelect}/></li>
+        <li><TaskTag tagName="NONE" index={3} pts={0} selected={tags[3]} toggle={handleTagSelect} /></li>
       </ul>
       <button 
         onClick={handleSubmit}
