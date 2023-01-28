@@ -7,12 +7,13 @@ const CompletedItem = (props) => {
           <button 
             className="add-back text-white bg-yellow-700 h-7 w-7 rounded-lg"
             id="add-back-btn"
+            onClick={()=>(props.undoComplete(props.index))}
           >
             {"<"}
           </button>
-          <label id={"add-back-btn"+props.message} for className=" text-lg font-extrabold line-through text-white opacity-60">
+          <div id={"add-back-btn"+props.message} className=" text-lg font-extrabold line-through text-white opacity-60">
             {props.message}
-          </label>
+          </div>
         </div>
     </div>
   );
