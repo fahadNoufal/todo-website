@@ -18,10 +18,12 @@ const TaskItem = (props) => {
             type={"radio"} 
             onClick={()=>{
               setTimeout(() => {
-              props.taskCompletedToggle(props.itemNo-1)
+                document.getElementById(randomId).checked = false;
+                props.taskCompletedToggle(props.itemNo-1)
+
             }, 300)
             }}  
-          
+            
             className="task-checkbox"/>
           
           <label

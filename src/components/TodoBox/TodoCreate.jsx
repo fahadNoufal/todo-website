@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CompletedItem from "./CompletedItem";
 import NoTaskImg from "../images/no-task-logo.png"
 import {useSelector,useDispatch} from "react-redux"
@@ -27,13 +27,13 @@ const NoteCreater = () => {
 
   return (
     <div className=" flex flex-col items-center w-5/12 ">
-      {/*<h1 className=" font-mono text-2xl font-extrabold py-4 ">{time.toLocaleTimeString()}</h1>*/}      <ul className=" completed-task-list w-full flex flex-col items-center gap-1 h-80">
+      <ul className=" completed-task-list w-full flex flex-col items-center gap-1 h-80">
         {finishedTasks.length===0 && <DisplayNoTasks/>}
         <h2 className="font-bold text-md tracking-widest opacity-70 text-center my-2 ">COMPLETED TASKS</h2>
 
         {finishedTasks.map((task,index)=>(<CompletedItem message={task.title} key={index} index={index} undoComplete={handleUndoComplete} />))}
       
-        </ul>
+      </ul>
       <button 
         onClick={()=>{dispatch(toggleDisplayCreate())}}
         className=" w-60 rounded-xl bg-blue-500 text-white my-5 py-3">  
@@ -47,11 +47,3 @@ const NoteCreater = () => {
 
 export default NoteCreater;
 
-// const [time, setTime] = useState(new Date());
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setTime(new Date());
-//     }, 1000);
-//     return () => clearInterval(interval);
-//   }, []);
