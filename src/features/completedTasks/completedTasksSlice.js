@@ -16,10 +16,13 @@ const completedTaskSlice= createSlice({
         undoComplete:(state,action)=>{
             const removedList= state.tasks.filter(itm=>(!(itm===state.tasks[action.payload])))
             return {...state,tasks:removedList}
+        },
+        resetCompleted:(state)=>{
+            return {...state,tasks:[]}
         }
     }
 
 })
 
 export default completedTaskSlice.reducer;
-export const {completed,undoComplete} =completedTaskSlice.actions;
+export const {completed,undoComplete,resetCompleted} =completedTaskSlice.actions;

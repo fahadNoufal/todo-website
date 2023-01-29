@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit"
 
 const showSortedSlice=createSlice({
     name:'showSorted',
-    initialState:{showSorted:true},
+    initialState:{showSorted:false},
     reducers:{
         toggleShowSorted:(state)=>({...state,showSorted:!state.showSorted}),
     }

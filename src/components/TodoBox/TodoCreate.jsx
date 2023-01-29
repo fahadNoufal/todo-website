@@ -3,7 +3,7 @@ import CompletedItem from "./CompletedItem";
 import NoTaskImg from "../images/no-task-logo.png"
 import {useSelector,useDispatch} from "react-redux"
 import { addTask } from "../../features/addedTask/AddedTaskSlice";
-import { undoComplete } from "../../features/completedTasks/completedTasksSlice";
+import { undoComplete ,resetCompleted} from "../../features/completedTasks/completedTasksSlice";
 import { toggleDisplayCreate } from "../../features/displaycreate/displayCreate";
 
 const NoteCreater = () => {
@@ -40,7 +40,12 @@ const NoteCreater = () => {
         Add Task
       </button>
       
-      <button className=" w-36 mt-2 rounded-sm text-xs font-serif bg-red-900 p-2">DELETE ALL TASKS</button>
+      <button 
+        className=" text-opacity-75 text-gray-200 font-semibold mt-2 rounded-md text-xs font-serif bg-red-900  p-3"
+        onClick={()=>{dispatch(resetCompleted())}}
+        >
+        DELETE COMPLETED TASKS
+      </button>
     </div>
   );
 };
