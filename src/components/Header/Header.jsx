@@ -7,7 +7,7 @@ const Header = () => {
         Todo Tasks
       </h1>
       <div className="date font-serif">
-        January 24 2023
+       
       </div>
     </div>
   )
