@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .app-body-container{
-  background: #fcdfc7;
+  background: linear-gradient( to bottom ,rgb(86, 152, 179),rgb(145, 47, 8)) 
 }
 body{
   color:rgb(226, 187, 87);
@@ -90,4 +90,8 @@ input[type="radio"] {
 .add-back{
   background: burlywood;
   color: black;
+}
+.sorted-tasks-container::-webkit-scrollbar{
+  width: 0;
+  height: 0;
 }

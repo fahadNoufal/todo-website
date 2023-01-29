@@ -3,7 +3,7 @@ import TaskTag from './TaskTag'
 import {useDispatch,useSelector} from "react-redux"
 import {  addTask } from '../../features/addedTask/AddedTaskSlice';
 import { toggleDisplayCreate } from '../../features/displaycreate/displayCreate';
-
+import { addTasksToSort } from '../../features/sortedTasks/sortedTasksSlice';
 
 const CreatingTask = () => {
 
@@ -24,22 +24,23 @@ const CreatingTask = () => {
   }
 
   const handleSubmit =()=>{
-    const points=0
+    let points=0
     const tagNames=[]
     if (tags[0]){
       tagNames.push('URG');
       points+=100
     }
-    if (tags[0]){
-      tagNames.push('URG');
+    if (tags[1]){
+      tagNames.push('IMP');
       points+=50
     }
-    if (tags[0]){
-      tagNames.push('URG');
+    if (tags[2]){
+      tagNames.push('MUST');
       points+=10
     }
-
-    dispatch(addTask({title:taskTitle,description:description,tags:tagNames,points:points}))
+    const task={title:taskTitle,description:description,tags:tagNames,points:points}
+    dispatch(addTask(task))
+    dispatch(addTasksToSort([...tasks,task]))
     dispatch(toggleDisplayCreate())
     setTaskTitle('')
     setDescription('')
